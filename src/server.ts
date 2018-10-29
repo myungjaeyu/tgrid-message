@@ -14,4 +14,6 @@ async function main() : Promise<void> {
 
 }
 
-main().then(_ => console.log('🚀  Started'))
+main()
+.then(_ => console.log('🚀  Started'))
+.catch(err => console.log('err', err))
