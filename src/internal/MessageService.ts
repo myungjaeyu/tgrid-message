@@ -30,6 +30,16 @@ export default class MessageService implements IMessageService {
 
     public talk(content : string): void {
 
+        for (let user of MessageService.users) {
+
+            let driver: Driver<IMessagePrinter> = user.second //first : key, second : value
+
+			if (driver === this.driver) continue
+            driver.talk(this.name, content)
+        }
+
+        console.log(`${ this.name } : ${ content }`)
+
     }
 
 }
