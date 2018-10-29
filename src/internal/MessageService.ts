@@ -19,6 +19,12 @@ export default class MessageService implements IMessageService {
 
     public setName(name : string): boolean {
 
+		if (MessageService.users.has(name)) return false
+
+        this.name = name
+
+		MessageService.users.emplace(name, this.driver)
+
 		return true
     }
 
