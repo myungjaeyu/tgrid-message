@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/myungjaeyu/tgrid-message#readme",
   "dependencies": {
-    "tgrid": "0.0.15"
+    "tgrid": "0.0.15",
+    "tstl": "^2.0.8"
   },
   "devDependencies": {
     "@types/node": "^10.12.0",
