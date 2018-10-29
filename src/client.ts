@@ -23,26 +23,26 @@ const _read = (question: string): Promise<string> =>
 async function main() : Promise<void> {
 
     const connector = new WebConnector(new MessagePrinter())
-	await connector.connect('ws://127.0.0.1:10101')
+    await connector.connect('ws://127.0.0.1:10101')
 
-	const messageService : Driver<IMessageService> = connector.getDriver<IMessageService>()
+    const messageService : Driver<IMessageService> = connector.getDriver<IMessageService>()
     let name : string
 
 
-	while (true) {
+    while (true) {
 
         name = await _read('insert name : ')
 
         if (await messageService.setName(name) === true) break
-	}
+    }
 
-	while (true) {
+    while (true) {
 
-		let content : string = await _read(name + ': ')
+        let content : string = await _read(name + ': ')
 
         if (content == '') break
 
-		await messageService.talk(content)
+        await messageService.talk(content)
     }
 
 
