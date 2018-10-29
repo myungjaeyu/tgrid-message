@@ -36,6 +36,16 @@ async function main() : Promise<void> {
         if (await messageService.setName(name) === true) break
 	}
 
+	while (true) {
+
+		let content : string = await _read(name + ': ')
+
+        if (content == '') break
+
+		await messageService.talk(content)
+    }
+
+
     await connector.close()
 
 }
